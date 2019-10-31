@@ -2,6 +2,9 @@ DROP DATABASE IF EXISTS eazykeyz;
 CREATE DATABASE eazykeyz;
 
 
+USE eazykeyz;
+
+
 CREATE TABLE customerInfo (
 ticketNum INT(6) NOT NULL,
 userName VARCHAR(20) NOT NULL,

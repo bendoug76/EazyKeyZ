@@ -3,19 +3,25 @@ var db = require("../models");
 module.exports = function(app) {
     // Load index page
     app.get("/", function(req, res) {
-        db.Example.findAll({}).then(function(dbEazykeyz) {
+
+        db.Customer.findAll({}).then(function(dbeazykeyz) {
+            console.log(dbeazykeyz)
             res.render("index", {
-                msg: "Welcome!",
-                examples: dbEazykeyz
+                // msg: "Welcome!",
+                customer: dbeazykeyz
+
             });
         });
     });
 
-    // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-        db.Example.findOne({ where: { id: req.params.id } }).then(function(dbEazykeyz) {
-            res.render("example", {
-                example: dbEazykeyz
+
+    // Load  page and pass in an customer by id
+    app.get("/home/:id", function(req, res) {
+        db.Customer.findOne({ where: { id: req.params.id } }).then(function(dbeazykeyz) {
+            console.log(dbeazykeyz)
+            res.render("customer", {
+                customer: dbeazykeyz
+
             });
         });
     });
