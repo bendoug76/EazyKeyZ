@@ -10,8 +10,12 @@ body {
     height: 80%;
     background: lightgray url('../img/64.svg') no-repeat center top;
     background-size: cover;
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    background-attachment: scroll;
+
 }
+
+
 ol, ul {
 	list-style: none;
 }
@@ -44,9 +48,13 @@ table {
 .logo h2
 {
 	font-size: 34px;
-    padding-top: 40px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    margin: 10%;
     font-family: 'Faster One', cursive;
-    text-shadow: black 5px 5px 5px 2px;
+    text-shadow: black 2px 2px 2px 2px;
+    background-color: black; opacity: 75%;
 
 
 
@@ -65,11 +73,13 @@ table {
     line-height: 52px;
     position: relative;
     font-weight: 700;
-    color: #fff;
+    color: white;
+    text-shadow: white;
     border: 2px solid #fff;
     border-radius: 5px;
     margin-bottom: 10px;
     box-shadow: black 5px 5px 5px 2px;
+    background-color: darkgray;
 }
 #countdown > div > span
 {
@@ -85,8 +95,13 @@ table {
 }
 .sub-p
 {
-	font-size: 14px;
-	padding: 5px 0px 15px;
+	font-size: 18px;
+    padding: 5px 0px 15px;
+    color: black;
+    background-color: lightgray;
+    font-family: 'Faster One', cursive;
+    
+
 }
 .social ul li
 {
@@ -106,10 +121,13 @@ table {
 }
 .about-title h2
 {
-	font-size: 24px;
-	font-family: 'Lobster', cursive;
+    font-size: 24px;
+    font-family: 'Faster One', cursive;
     padding-bottom: 10px;
-    box-shadow: black 5px 5px 5px 2px;
+    background-color: black; opacity: 75%;
+    box-shadow: black 2px 2px 2px 2px;
+;
+
 
 }
 .img
@@ -282,10 +300,11 @@ footer {
 }
 h2.subs-title  {
     font-size: 34px;
-    padding: 30px 0px 20px;
+    padding: 10px 0px 20px;
     box-shadow: black 5px 5px 5px 2px;
     font-family: 'Faster One', cursive;
-    background-color: darkgray;
+    background-color: black; opacity: 75%;
+    margin: 10%;
 
 
 }
