@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Ticket", {
+
+  var Ticket = sequelize.define("Ticket", {
     ticketNum: {
       type: DataTypes.INTEGER,
       allowNull: false,
