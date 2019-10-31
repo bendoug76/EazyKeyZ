@@ -1,24 +1,60 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    // Get all ecustomers
-    app.get("/api/home", function(req, res) {
-        db.Eazykeyz.findAll({}).then(function(dbEazykeyz) {
-            res.json(dbEazykeyz);
-        });
+  // Get all examples
+  app.get("/api/examples", function(req, res) {
+    db.Ticket.findAll({}).then(function(dbTicket) {
+      res.json(dbTicket);
     });
+  });
 
-    // Create a new customer
-    app.post("/api/home", function(req, res) {
-        db.Eazykeyz.create(req.body).then(function(dbEazykeyz) {
-            res.json(dbEazykeyz);
-        });
+  // Create a new example
+  app.post("/api/examples", function(req, res) {
+    db.Ticket.create(req.body).then(function(dbTicket) {
+      res.json(dbTicket);
     });
+  });
+//time returning
+  // app.post("/api/examples", function(req, res) {
 
-    // Delete an customer by id
-    app.delete("/api//:id", function(req, res) {
-        db.Eazykeyz.destroy({ where: { id: req.params.id } }).then(function(dbEazykeyz) {
-            res.json(dbEazykeyz);
-        });
+  //   req.body = {
+  //     ticketNum: req.body.ticketNum,
+  //     userName: req.body.userName,
+  //     modelName: req.body.modelName,
+  //     returnTime: req.body.returnTime,}
+
+  //   // newDbEntry = {
+  //   //   ticketnumber: 'idhtiushjdt',
+  //   //   name: 'dsniufnsdf'
+  //   // }
+
+  //   var pickuptime = moment().add(req.body.timetilreturn, 'm')
+  //   moment()
+
+
+
+  //   db.Example.create(newDbEntry).then(function(dbExample) {
+  //     res.json(dbExample);
+  //   });
+  // });
+
+  // Delete an example by id
+  app.delete("/api/examples/:id", function(req, res) {
+    db.Ticket.destroy({ where: { id: req.params.id } }).then(function(dbTicket) {
+      res.json(dbTicket);
     });
+  });
+
+  // PUT route for updating posts
+  app.put("/api/posts", function(req, res) {
+    db.Ticket.update(req.body,
+      {
+        where: {
+          ticketNum: req.body.ticketNum
+        }
+      })
+      .then(function(dbTicket) {
+        res.json(dbTicket);
+      });
+  });
 };
