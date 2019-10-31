@@ -1,24 +1,24 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+    // Get all ecustomers
+    app.get("/api/home", function(req, res) {
+        db.Eazykeyz.findAll({}).then(function(dbEazykeyz) {
+            res.json(dbEazykeyz);
+        });
     });
-  });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+    // Create a new customer
+    app.post("/api/home", function(req, res) {
+        db.Eazykeyz.create(req.body).then(function(dbEazykeyz) {
+            res.json(dbEazykeyz);
+        });
     });
-  });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+    // Delete an customer by id
+    app.delete("/api//:id", function(req, res) {
+        db.Eazykeyz.destroy({ where: { id: req.params.id } }).then(function(dbEazykeyz) {
+            res.json(dbEazykeyz);
+        });
     });
-  });
 };
