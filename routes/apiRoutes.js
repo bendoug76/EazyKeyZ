@@ -40,6 +40,11 @@ module.exports = function(app) {
   //   });
   // });
 
+app.post("/valet", function(req, res){
+
+    
+
+})
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.Ticket.destroy({ where: { id: req.params.id } }).then(function(dbTicket) {

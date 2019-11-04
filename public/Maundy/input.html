@@ -24,26 +24,27 @@
 
 <body>
 
-    <form>
+    <form method="POST" action="/api/customers">
         <div class="form-group">
           <label for="formGroupExampleInput">Last Name</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Client Last Name">
+          <input type="text" class="form-control" id="formGroupExampleInput" name="userName" placeholder="Client Last Name">
         </div>
         <br>
         <div class="form-group">
           <label for="formGroupExampleInput2">Ticket Number</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Client Ticket #">
+          <input type="text" class="form-control" id="formGroupExampleInput2" name="ticketNum" placeholder="Client Ticket #">
         </div>
         <br>
         <div class="form-group">
             <label for="formGroupExampleInput2">Make/Model of Car</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Car Make & Model">
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="modelName" placeholder="Car Make & Model">
           </div>
           <br>
           <div class="form-group">
             <label for="formGroupExampleInput2">Time Until Return</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Approximate Time Frame">
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="returnTime" placeholder="Approximate Time Frame">
           </div>
+          <button type="submit" class="btn btn-dark">Submit</button>
       </form>
       
 
