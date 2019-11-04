@@ -14,6 +14,14 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/Valet", function(req, res) {
+
+        
+            res.render("input", {layout: 'valet.handlebars'});
+      
+    });
+
+
 
     // Load  page and pass in an customer by id
     app.get("/home/:id", function(req, res) {

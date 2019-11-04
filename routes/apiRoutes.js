@@ -1,62 +1,68 @@
 var db = require("../models");
 
-var db = require("../models");
+module.exports = function(app) {
+  // Get all customers
+  app.get("/api/requestAll", function(req, res) {
+    db.Customer.findAll().then(function(dbCustomer) {
+      res.json(dbCustomer);
+    });
+  });
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Ticket.findAll({}).then(function(dbTicket) {
-      res.json(dbTicket);
-    });
-  });
+  // Get customer by ticket number
+  app.get("/api/requestByTicket", function(req, res) {
+    db.Customer.findOne({
+      where: {
+        ticketNum: req.body.ticketNum
+      }
+    }).then(function(dbCustomer) {
+      res.json(dbCustomer);
+    });
+  });
 
-  // Create a new example
-  app.post("/api/customer", function(req, res) {
-    db.Ticket.create(req.body).then(function(dbTicket) {
-      res.json(dbTicket);
-    });
-  });
-//time returning
-  // app.post("/api/examples", function(req, res) {
+  // Get customer by name
+  app.get("/api/requestByName", function(req, res) {
+    db.Customer.findOne({
+      where: {
+        userName: req.body.userName
+      }
+    }).then(function(dbCustomer) {
+      res.json(dbCustomer);
+    });
+  });
 
-  //   req.body = {
-  //     ticketNum: req.body.ticketNum,
-  //     userName: req.body.userName,
-  //     modelName: req.body.modelName,
-  //     returnTime: req.body.returnTime,}
+  // Create a new customer
+  app.post("/api/customers", function(req, res) {
+    db.Customer.create({
+      ticketNum: req.body.ticketNum,
+      userName: req.body.userName,
+      modelName: req.body.modelName,
+      returnTime: req.body.returnTime
+    }).then(function(dbCustomer) {
+      res.json(dbCustomer);
+    });
+  });
 
-  //   // newDbEntry = {
-  //   //   ticketnumber: 'idhtiushjdt',
-  //   //   name: 'dsniufnsdf'
-  //   // }
+  // Delete an example by ticket number
+  app.delete("/api/customers", function(req, res) {
+    db.Customer.destroy({ where: { ticketNum: req.body.ticketNum } }).then(
+      function(dbCustomer) {
+        res.json(dbCustomer);
+      }
+    );
+  });
 
-  //   var pickuptime = moment().add(req.body.timetilreturn, 'm')
-  //   moment()
-
-
-
-  //   db.Example.create(newDbEntry).then(function(dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Ticket.destroy({ where: { id: req.params.id } }).then(function(dbTicket) {
-      res.json(dbTicket);
-    });
-  });
-
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Ticket.update(req.body,
-      {
-        where: {
-          ticketNum: req.body.ticketNum
-        }
-      })
-      .then(function(dbTicket) {
-        res.json(dbTicket);
-      });
-  });
+  // PUT route for updating return time
+  app.put("/api/customers", function(req, res) {
+    console.log(req.body);
+    db.Customer.update(
+      { returnTime: req.body.returnTime },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(function(dbCustomer) {
+      res.json(dbCustomer);
+    });
+  });
 };
