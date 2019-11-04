@@ -15,9 +15,30 @@ body {
 
 }
 
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+
+
+}
+
+.elementor-widget-wrap{
+
+background-color: #000;
+font-family: 'Open Sans', sans-serif;
+font-size: 14px;
+opacity: 90%;
+}
+
+.row {
+    /* margin-right: -15px; */
+    /* margin-left: -15px; */
+    justify-content: center;
+}
 
 ol, ul {
-	list-style: none;
+    list-style: none;
+    text-align: center;
 }
 blockquote, q {
 	quotes: none;
@@ -114,6 +135,10 @@ table {
     margin-right: 10px;
     box-shadow: black 5px 5px 5px 2px;
 
+}
+
+li {
+    font-size: 14px;
 }
 .section-padding
 {
@@ -358,4 +383,7 @@ body{
         width: 80%;
         margin: 0 auto;
 }
+
+
+
 }
