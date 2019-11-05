@@ -8,16 +8,7 @@ module.exports = function(app) {
     });
   });
 
-  // Get customer by ticket number
-  app.get("/api/requestByTicket", function(req, res) {
-    db.Customer.findOne({
-      where: {
-        ticketNum: req.body.ticketNum
-      }
-    }).then(function(dbCustomer) {
-      res.json(dbCustomer);
-    });
-  });
+
 
   // Get customer by name
   app.get("/api/requestByName", function(req, res) {

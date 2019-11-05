@@ -33,7 +33,23 @@ module.exports = function(app) {
             });
         });
     });
-
+    app.get("/api/requestByTicket", function(req, res) {
+        db.Customer.findOne({
+          where: {
+            ticketNum: req.body.ticketNum
+          }
+        }).then(function(dbCustomer) {
+          res.json(dbCustomer);
+          
+          res.render("customer", {
+            customer: dbCustomer
+    
+        });
+        });
+    
+        
+    
+      });
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.render("404");
