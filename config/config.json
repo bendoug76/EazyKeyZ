@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "M1ssK1tty",
+        "password": "root",
         "database": "eazykeyz",
         "host": "localhost",
         "dialect": "mysql"
