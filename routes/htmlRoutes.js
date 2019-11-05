@@ -5,7 +5,7 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
 
         db.Customer.findAll({}).then(function(dbeazykeyz) {
-            console.log(dbeazykeyz)
+            // console.log(dbeazykeyz)
             res.render("index", {
                 // msg: "Welcome!",
                 customer: dbeazykeyz
@@ -33,7 +33,29 @@ module.exports = function(app) {
             });
         });
     });
+    app.post("/api/requestByTicket", function(req, res) {
 
+        console.log("this endpoint is getting hit!")
+
+        console.log(req.body);
+     
+ 
+        db.Customer.findOne({
+          where: {
+            ticketNum: req.body.ticketNum
+          }
+        }).then(function(dbCustomer) {
+        //   res.json(dbCustomer);
+          
+          res.render("customer", {
+            customer: dbCustomer
+    
+        });
+        });
+    
+        
+    
+      });
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.render("404");
