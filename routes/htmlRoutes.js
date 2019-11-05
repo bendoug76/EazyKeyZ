@@ -5,7 +5,7 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
 
         db.Customer.findAll({}).then(function(dbeazykeyz) {
-            console.log(dbeazykeyz)
+            // console.log(dbeazykeyz)
             res.render("index", {
                 // msg: "Welcome!",
                 customer: dbeazykeyz
@@ -33,13 +33,19 @@ module.exports = function(app) {
             });
         });
     });
-    app.get("/api/requestByTicket", function(req, res) {
+    app.post("/api/requestByTicket", function(req, res) {
+
+        console.log("this endpoint is getting hit!")
+
+        console.log(req.body);
+     
+ 
         db.Customer.findOne({
           where: {
             ticketNum: req.body.ticketNum
           }
         }).then(function(dbCustomer) {
-          res.json(dbCustomer);
+        //   res.json(dbCustomer);
           
           res.render("customer", {
             customer: dbCustomer

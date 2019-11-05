@@ -3,6 +3,8 @@ jQuery(document).ready(function($) {
 
   //Contact
   $('form.contactForm').submit(function() {
+
+    event.preventDefault();
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -95,9 +97,9 @@ jQuery(document).ready(function($) {
       action = 'contactform/contactform.php';
     }
     $.ajax({
-      type: "POST",
+      method: "post",
       url: action,
-      data: str,
+      data: {  ticketNum:$("#ticketNum").val()},
       success: function(msg) {
         // alert(msg);
         if (msg == 'OK') {
@@ -107,7 +109,9 @@ jQuery(document).ready(function($) {
         } else {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
+          document.open();
+          document.write(msg);
+          document.close();
         }
 
       }

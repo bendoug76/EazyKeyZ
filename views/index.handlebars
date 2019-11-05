@@ -125,19 +125,19 @@
               <div id="note"></div>
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
-              <form action="/api/" role="form" class="contactForm">
+              <form action="/api/requestByTicket" method="GET" role="form" class="contactForm">
                 <div class="form-group">
                   <!-- Changing id to match backend information on submit form  -->
                   <!-- placeholder is what is on screen -->
                   <!-- name will match backend -->
-                  <input type="text" name="ticketNum" class="form-control" id="name" placeholder="Ticket Number"
-                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="ticketNum" class="form-control" id="ticketNum" placeholder="Ticket Number"
+                    data-rule="minlen:6" data-msg="Please enter at least 6 characters" />
                   <div class="validation"></div>
                   <!-- ticket number above -->
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="userName" id="email" placeholder="Name"
-                    data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="text" class="form-control" name="userName" id="name" placeholder="Name"
+                    data-rule="name" data-msg="Please enter a valid Name" />
                   <div class="validation"></div>
                   <button type="submit" class="contact-submit">Submit Vehicle Information</button>
                   <!-- Name above -->
